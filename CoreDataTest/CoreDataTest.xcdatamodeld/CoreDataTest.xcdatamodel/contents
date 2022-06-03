@@ -6,12 +6,14 @@
         <relationship name="nameToNotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NotesList" inverseName="notesToName" inverseEntity="NotesList"/>
     </entity>
     <entity name="NotesList" representedClassName="NotesList" syncable="YES" codeGenerationType="class">
+        <attribute name="notesDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="notesID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="notesTitle" optional="YES" attributeType="String"/>
+        <attribute name="notesType" optional="YES" attributeType="String"/>
         <relationship name="notesToName" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NameList" inverseName="nameToNotes" inverseEntity="NameList"/>
     </entity>
     <elements>
         <element name="NameList" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="NotesList" positionX="-9" positionY="54" width="128" height="74"/>
+        <element name="NotesList" positionX="-9" positionY="54" width="128" height="104"/>
     </elements>
 </model>

@@ -14,6 +14,7 @@
 		7DD6FE83284764B100D44C13 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6FE82284764B100D44C13 /* StorageManager.swift */; };
 		7DD6FE872847655900D44C13 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6FE862847655900D44C13 /* MainScreen.swift */; };
 		7DD6FE892847757400D44C13 /* NotesListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6FE882847757400D44C13 /* NotesListScreen.swift */; };
+		7DD6FE8C284A28ED00D44C13 /* AddNoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD6FE8B284A28ED00D44C13 /* AddNoteScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		7DD6FE82284764B100D44C13 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		7DD6FE862847655900D44C13 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		7DD6FE882847757400D44C13 /* NotesListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListScreen.swift; sourceTree = "<group>"; };
+		7DD6FE8B284A28ED00D44C13 /* AddNoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				7DD6FE75284761E500D44C13 /* Preview Content */,
 				7DD6FE862847655900D44C13 /* MainScreen.swift */,
 				7DD6FE882847757400D44C13 /* NotesListScreen.swift */,
+				7DD6FE8A284A28B700D44C13 /* Add Screens */,
 			);
 			path = CoreDataTest;
 			sourceTree = "<group>";
@@ -74,6 +77,14 @@
 				7DD6FE76284761E500D44C13 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7DD6FE8A284A28B700D44C13 /* Add Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7DD6FE8B284A28ED00D44C13 /* AddNoteScreen.swift */,
+			);
+			path = "Add Screens";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DD6FE7C284761E600D44C13 /* CoreDataTest.xcdatamodeld in Sources */,
+				7DD6FE8C284A28ED00D44C13 /* AddNoteScreen.swift in Sources */,
 				7DD6FE872847655900D44C13 /* MainScreen.swift in Sources */,
 				7DD6FE83284764B100D44C13 /* StorageManager.swift in Sources */,
 				7DD6FE70284761E400D44C13 /* CoreDataTestApp.swift in Sources */,

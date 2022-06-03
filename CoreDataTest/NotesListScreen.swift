@@ -9,10 +9,10 @@ import SwiftUI
 
 struct NotesListScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @State var selectedPet: NameList
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \NotesList.notesTitle, ascending: true)], animation: .default)
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \NotesList.notesDate, ascending: true)], animation: .default)
     private var test: FetchedResults<NotesList>
+    let selectedPet: NameList
     
     private var notes: [NotesList] {
         selectedPet.nameToNotes?.allObjects as? [NotesList] ?? []
@@ -24,11 +24,20 @@ struct NotesListScreen: View {
     
     var body: some View {
         VStack{
-            List(test) { note in
-                Text(note.notesTitle ?? "Empty title")
+            List {
+                ForEach(notes){note in
+                    VStack(alignment: .leading){
+                        Text(note.notesTitle ?? "Empty title")
+                            .font(.system(size: 16))
+                        Text("\(note.notesDate?.formatted(date: .long, time: .omitted) ?? "")")
+                            .font(.system(size: 10))
+                    }
+                    .padding(2)
+                }
+                .onDelete(perform: deleteNote)
             }
-            Button("add note") {
-                addNewNote(for: selectedPet)
+            NavigationLink(destination: AddNoteScreen(selectedPet: selectedPet)) {
+                Text("Добавить заметку")
             }
         }
     }
@@ -37,14 +46,27 @@ struct NotesListScreen: View {
         let newNote = NotesList(context: viewContext)
         newNote.notesID = UUID()
         newNote.notesTitle = "Test title"
+        newNote.notesDate = Date()
         newNote.notesToName = pet
-        
+        viewContext.refreshAllObjects()
         do {
             try viewContext.save()
         } catch {
             let nsError = error as NSError
             fatalError("Fatal error \(nsError), \(nsError.userInfo)")
         }
+    }
+    
+    private func deleteNote(at offsets: IndexSet) {
+        for index in offsets {
+            let note = notes[index]
+            viewContext.delete(note)
+            viewContext.refreshAllObjects()
+        }
+        do {
+            try viewContext.save()
+        } catch {
+            }
     }
 }
 
